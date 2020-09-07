@@ -15,21 +15,21 @@
         }).then(res => res.json())
             .then(responce => {
 
-                let emo = '| Emoji | |  | <br /> |--|--|--| <br />';
+                let emojiStr = '| Emoji | |  | <br /> |--|--|--| <br />';
                 let counter = 0;
-                for (var property in responce) {
+                for (let property in responce) {
                     if (responce.hasOwnProperty(property)) {
-                        emo += '| :' + property + ": `:" + property + ":` ";
+                        emojiStr += '| :' + property + ": `:" + property + ":` ";
                         counter++;
-                        if (counter >= 3) {
-                            emo += "| <br/>"
+                        if (counter > 2) {
+                            emojiStr += "| <br/>"
                             counter = 0;
                         }
                     }
                 }
 
                 $('#header')
-                    .html(emo)
+                    .html(emojiStr)
             })
     }
 
