@@ -1,0 +1,38 @@
+<style>
+    * {
+        font-style: 10px;
+    }
+</style>
+<div id="header"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    function MakeEmojiMarkdownTable() {
+        fetch("https://api.github.com/emojis", {
+            headers: {
+                Accept: "application/vnd.github.v3+json"
+            }
+        }).then(res => res.json())
+            .then(responce => {
+
+                let emo = '| Emoji | |  | <br /> |--|--|--| <br />';
+                let counter = 0;
+                for (var property in responce) {
+                    if (responce.hasOwnProperty(property)) {
+                        emo += '| :' + property + ": `:" + property + ":` ";
+                        counter++;
+                        if (counter >= 3) {
+                            emo += "| <br/>"
+                            counter = 0;
+                        }
+                    }
+                }
+
+                $('#header')
+                    .html(emo)
+            })
+    }
+
+    $(MakeEmojiMarkdownTable)
+
+</script>
