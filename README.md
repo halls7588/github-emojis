@@ -1,4 +1,7 @@
-# All Github Emojies with code
+# GitHub Emojis
+Bellow is a list of all the GitHub emojis pulled directly from the GitHub API. Simply find the emojie that you want and copy and paste the the code between the collins, e.g. if you want the 100 emoji copy the `:100:` and paste to your README file to get :100:
+
+# All Github Emojis with code
 
 | Emojis | | |
 |--|--|--|
